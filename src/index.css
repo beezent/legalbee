@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LEGAL BEE Design System - Professional AI Legal Assistant
+Golden bee theme with Bengali language support
+*/
+
+@layer base {
+  :root {
+    /* Core Theme - Golden Bee Legal */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    /* Interactive Elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Brand Colors - Legal Bee */
+    --primary: 51 100% 50%; /* Golden Yellow #FFD700 */
+    --primary-foreground: 0 0% 10%;
+    --primary-glow: 48 100% 67%;
+
+    --secondary: 0 0% 0%; /* Professional Black */
+    --secondary-foreground: 0 0% 100%;
+
+    /* UI States */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Chat System Colors */
+    --chat-user: 120 60% 85%; /* Light green #DCF8C6 */
+    --chat-bot: 0 0% 94.5%; /* Light gray #F1F1F1 */
+    --chat-text: 0 0% 20%;
+
+    /* Warning System */
+    --warning: 45 100% 84%; /* #FFF3CD */
+    --warning-foreground: 45 71% 23%; /* #856404 */
+
+    /* Emergency System */
+    --emergency: 0 84% 60%;
+    --emergency-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 51 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-chat: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+    /* Shadows */
+    --shadow-chat: 0 2px 8px hsl(var(--primary) / 0.1);
+    --shadow-float: 0 8px 32px hsl(var(--primary) / 0.2);
+    --shadow-emergency: 0 4px 20px hsl(var(--emergency) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-chat: all 0.2s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Theme - Legal Bee Professional */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 51 100% 50%; /* Keep golden brand */
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    /* Chat colors adjusted for dark mode */
+    --chat-user: 120 40% 25%;
+    --chat-bot: 0 0% 18%;
+    --chat-text: 0 0% 90%;
+
+    /* Warning adjusted for dark mode */
+    --warning: 45 50% 20%;
+    --warning-foreground: 45 100% 80%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 51 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans Bengali', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Chat Bubble Styles */
+  .chat-bubble-user {
+    @apply bg-chat-user text-chat-text rounded-2xl rounded-br-md p-3 max-w-[80%] shadow-sm;
+    background: hsl(var(--chat-user));
+    color: hsl(var(--chat-text));
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  .chat-bubble-bot {
+    @apply bg-chat-bot text-chat-text rounded-2xl rounded-bl-md p-3 max-w-[80%] shadow-sm;
+    background: hsl(var(--chat-bot));
+    color: hsl(var(--chat-text));
+    animation: slideInLeft 0.3s ease-out;
+  }
+
+  /* Floating Action Button - No longer used */
+
+  /* Warning Banner */
+  .warning-banner {
+    @apply bg-warning text-warning-foreground border-l-4;
+    background: hsl(var(--warning));
+    color: hsl(var(--warning-foreground));
+    border-left-color: hsl(var(--warning-foreground));
+  }
+
+  /* Brand Elements */
+  .brand-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .text-brand {
+    color: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  /* Animation Keyframes */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px hsl(var(--primary) / 0);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+}
