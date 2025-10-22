@@ -61,42 +61,41 @@ export const EmergencyButton = ({ isOpen, onOpenChange }: EmergencyButtonProps) 
     <>
       {/* Emergency Modal */}
       <Dialog open={isOpen} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-lg font-semibold text-emergency flex items-center gap-2">
-              <AlertTriangle className="h-5 w-5" />
+        <DialogContent className="w-[95vw] max-w-md mx-auto max-h-[85vh] overflow-y-auto">
+          <DialogHeader className="pb-2">
+            <DialogTitle className="text-base sm:text-lg font-semibold text-emergency flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5 flex-shrink-0" />
               জরুরী সেবার হটলাইন নাম্বার
             </DialogTitle>
           </DialogHeader>
-          
-          <div className="space-y-3 mt-4">
+
+          <div className="space-y-3 mt-2">
             {emergencyContacts.map((contact, index) => (
               <Card key={index} className="border-emergency/20">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div className="flex-1">
-                      <h3 className="font-medium text-sm mb-1">{contact.label}</h3>
-                      <p className="text-2xl font-bold text-emergency">
+                      <h3 className="font-medium text-sm sm:text-base leading-tight mb-1">{contact.label}</h3>
+                      <p className="text-xl sm:text-2xl font-bold text-emergency">
                         {contact.number}
                       </p>
                     </div>
-                    
-                    <div className="flex items-center gap-2">
+
+                    <div className="flex items-center gap-2 flex-shrink-0">
                       <Button
                         onClick={() => handleCall(contact.number)}
-                        className="bg-emergency hover:bg-emergency/90 text-emergency-foreground"
-                        size="sm"
+                        className="bg-emergency hover:bg-emergency/90 text-emergency-foreground h-9 px-3 text-sm font-medium"
                       >
-                        <Phone className="h-4 w-4 mr-1" />
+                        <Phone className="h-4 w-4 mr-1 flex-shrink-0" />
                         Call
                       </Button>
-                      
+
                       {contact.link && (
                         <Button
                           onClick={() => handleWebsite(contact.link!)}
                           variant="outline"
-                          size="sm"
-                          className="border-emergency/20 text-emergency hover:bg-emergency/5"
+                          size="icon"
+                          className="border-emergency/20 text-emergency hover:bg-emergency/5 h-9 w-9 flex-shrink-0"
                         >
                           <ExternalLink className="h-4 w-4" />
                         </Button>
